@@ -10,15 +10,16 @@
     <h2><span id="time">60</span>
     <button type="button" id="start">Start Quiz!</button>
     <div id="questions"></div>
-    <div id="choices">
-
-        <div class="choice" id="A" onclick="checkAnswer('A')"></div>
-
-        <div class="choice" id="B" onclick="checkAnswer('B')"></div>
-
-        <div class="choice" id="C" onclick="checkAnswer('C')"></div>
-
+    <p class="questions">1. At what minimum distance away from a railroad should you stop?</p>
     </div>
+    <ul class="answers" id="question1">
+        <input type="radio" name="q1" value="a" id="q1a">a. 6 meters from the nearest rail</label><br/>
+        <input type="radio" name="q1" value="b" id="q1b">b. 5 meters from the nearest rail</label><br/>
+        <input type="radio" name="q1" value="c" id="q1c">c. 10 meters from the nearest rail</label><br/>
+        <input type="radio" name="q1" value="d" id="q1d">d. 3 meters from the nearest rail</label><br/>
+        </ul>
+        
+        <input type="button" value="submit" id="submitq1" onclick="submitAnswer();">
     <div id="answer"></div>
     
 
