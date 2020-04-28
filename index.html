@@ -3,14 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js"></script>
+    
     <title>Document</title>
 </head>
 <body>
-    <div id="seconds">60</div>
+    <h2><span id="time">60</span>
     <button type="button" id="start">Start Quiz!</button>
-    <h1 id="time">
-    </h1>
-    <div id="main"></div>
+    <div id="questions"></div>
+    <div id="choices">
+
+        <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+
+        <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+
+        <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+
+    </div>
+    <div id="answer"></div>
+    
+
+    <script src="script2.js"></script>    
 </body>
 </html>
