@@ -9,18 +9,41 @@
 <body>
     <h2><span id="time">60</span>
     <button type="button" id="start">Start Quiz!</button>
-    <div id="questions"></div>
-    <p class="questions">1. At what minimum distance away from a railroad should you stop?</p>
-    </div>
-    <ul class="answers" id="question1">
-        <input type="radio" name="q1" value="a" id="q1a">a. 6 meters from the nearest rail</label><br/>
-        <input type="radio" name="q1" value="b" id="q1b">b. 5 meters from the nearest rail</label><br/>
-        <input type="radio" name="q1" value="c" id="q1c">c. 10 meters from the nearest rail</label><br/>
-        <input type="radio" name="q1" value="d" id="q1d">d. 3 meters from the nearest rail</label><br/>
-        </ul>
-        
-        <input type="button" value="submit" id="submitq1" onclick="submitAnswer();">
-    <div id="answer"></div>
+    <ul id="questions">  
+       <li div="q1">
+            <h2>Question 1</h2>
+            <form>
+                <input type="radio" class="answer" name="gender" value="male">
+                     <label for="male">Male
+                     </label>
+                <br>
+                <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female
+                    </label>
+                <br>
+                <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Other
+                </label>
+        </li>
+        <li div="q2">
+            <h2>Question 2</h2>
+            <form>
+                <input type="radio" class="answer" name="color" value="red">
+                     <label for="red">Red
+                     </label>
+                <br>
+                <input type="radio" id="wrong" name="color" value="green">
+                    <label for="green">Green
+                    </label>
+                <br>
+                <input type="radio" id="wrong" name="color" value="yellow">
+                <label for="yellow">Yellow
+                </label>
+        </li>
+    </ul>  
+</form> 
+
+    
     
 
     <script src="script2.js"></script>    
