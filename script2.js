@@ -2,11 +2,12 @@ var time=document.querySelector("#time");
 var startButton=document.querySelector("#start");
 var count=localStorage.getItem("count");
 var questions = document.getElementById("questions");
-var answer=document.querySelector("#answer1");
+var answer1=document.querySelector("#answer1");
 var q1=document.querySelector("#q1");
 var q2=document.querySelector("#q2");
+var q3=document.querySelector("#q3");
 var wrong=document.querySelector(".wrong");
-/*var userAnswers = [];*/
+
 q2.style.display="none";
 var secondsLeft = 60;
 
@@ -29,63 +30,25 @@ function setTime() {
       }
   
     }, 1000);
-}
+};
 
 
+
+//Questions
 answer1.addEventListener("click", function (){
-    
-//answer.addEventListener("click", function(){
-/*ar questions = [
-   
-    
-   { q: "1. At what minimum distance away from a railroad should you stop?", a: "q1a" },
-    { q: "There are 365 days in a year.", a: "t" },
-    { q: "There are 42 ounces in a pound.", a: "f" },
-    { q: "The Declaration of Independence was created in 1745.", a: "f" },
-    { q: "Bananas are vegetables.", a: "f" }
-  ];
-  var answers = [
-      {a:"1", c:"q1a"},
-      {a: "2", c:"t"},
-      {a: "3", c:"f"},
-      {a: "4", c: "f"},
-      {a: "5", c: "f"},
-  ];
-*/
-  //console.log(answers[2].c)
-
-  // We start the game with a score of 0.
   var score = 0;
-
-  // Loop over every question object
- // for (var i = 0; i < questions.length; i++) {
-    // Display current question to user and ask OK/Cancel
-  //  var answer = confirm(questions[i].q);
-
-    // Compare answers
-   // if (answer === (questions[i].a === answers[i].c)){
-   // if ((answer === true && questions[i].a === "t") ||
-   //   (answer === false && questions[i].a === "f")) {
-      // Increase score
       score++;
       alert("Correct!");
-      console.log(score);
       q1.style.display="none";
-      q1.getElementById("q2").innerHTML;
-      //console.log(q2.style);
-      //alert("You got " + score + "/" + questions.length);
-    //  document.q1.parentElement.replaceChild(q2,q1);
-    })
-   /* else {
-      alert("Wrong!");
-    }
-  }*/
+      q2.style.display="block";
+    });
 
-  // Show total at end
-  
-//}
+answer2.addEventListener("click", function (){
+    var score = 0;
+        score++;
+        alert("Correct!");
+        q2.style.display="none";
+        q3.style.display="block";
+        });
 
- /* var submitAnswer = function() {
-    var answer = document.getElementById(submitq1);
-    userAnswers.push[answer];
- };*/
+ 
