@@ -153,41 +153,9 @@ var bns = $("button");
 bns.on("click", function() {
     if (clickCount<5){
     nextChild();
-}else{
-    //hide quetions
-    questions.style.display="none";
-    var final=document.createElement("div");
-
-    //display final screen
-       final.textContent="Game Over";
-       document.body.appendChild(final);
-    
-    //final score
-    var finalScore=document.createElement("p");
-        finalScore.textContent=pointCount+1;
-       final.appendChild(finalScore);
-
-    //create and append intitials input
-    var input=document.createElement("input");
-    input.setAttribute("type","text");
-    final.appendChild(input);
-
-    //create keydown for initials input
-    input.addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-        var initials = input.value;
-         // create scoreEntry
-    var scoreEntry = initials + " " + finalScore.textContent;
-    console.log(scoreEntry);
-        }
-
-    });
-    
-
-    //localStorage.setItem("click-count", 0);
-//var clickCount = localStorage.getItem("click-count");
-    
 }
+
+
 });
 
 
@@ -265,17 +233,19 @@ time--;
 var timeDisplay = document.createElement("div");
 document.body.appendChild(timeDisplay);
 
-var secondsLeft = 60;
+var secondsLeft = 10;
 
 startQuiz.addEventListener("click", function setTime() {
   var timerInterval = setInterval(function() {
     secondsLeft--;
     timeDisplay.textContent = secondsLeft;
 
-    if(secondsLeft === 0) {
-      clearInterval(timerInterval);
-      sendMessage();
-    }
+    if((secondsLeft === 0) || (clickCount===5)) {
+        clearInterval(timerInterval);
+        finalPage();
+        
+      }
+    
 
   }, 1000);
 })
@@ -283,6 +253,37 @@ startQuiz.addEventListener("click", function setTime() {
 
 
 
+
+function finalPage(){
+    //hide quetions
+    questions.style.display="none";
+    var final=document.createElement("div");
+
+    //display final screen
+       final.textContent="Game Over";
+       document.body.appendChild(final);
+    
+    //final score
+    var finalScore=document.createElement("p");
+        finalScore.textContent=pointCount+1;
+       final.appendChild(finalScore);
+
+    //create and append intitials input
+    var input=document.createElement("input");
+    input.setAttribute("type","text");
+    final.appendChild(input);
+
+    //create keydown for initials input
+    input.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+        var initials = input.value;
+         // create scoreEntry
+    var scoreEntry = initials + " " + finalScore.textContent;
+    console.log(scoreEntry);
+        }
+
+  });
+}
 
 
 
