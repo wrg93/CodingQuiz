@@ -10,7 +10,7 @@ var q5=document.createElement("li");
 q1.textContent="Who?";
 q2.textContent="What?";
 q3.textContent="Where?";
-q4.textContent="when?";
+q4.textContent="When?";
 q5.textContent="Why?";
 
 //Appending questions element
@@ -23,8 +23,31 @@ questions.appendChild(q3);
 questions.appendChild(q4);
 questions.appendChild(q5);
 
-console.log(questions.children[0]);
+//create button
+var q1a1=document.createElement("BUTTON");
 
-return(question.children[0]);
+//create button text
+q1a1.textContent="Answer One";
+
+//append button
+q1.appendChild(q1a1);
+
+//event for all buttons clicked
+var bns = $("button");
+bns.on("click", function() {
+    alert("you clicked");
+});
+
+//btn.addEventListener("click",function(){
+    //for (i=0;i<1; i++)
+//console.log(questions.children[i++].textContent);
+//})
+
+
+
+
+
+
+
 
 
