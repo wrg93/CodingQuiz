@@ -1,5 +1,14 @@
-//count variable
-var count = localStorage.getItem("count");
+//click count variable
+//localStorage.setItem("click-count", 0);
+//var clickCount = localStorage.getItem("click-count");
+clickCount=0;
+
+//point count variable
+//localStorage.setItem("point-count", 0);
+//var pointCount = localStorage.getItem("point-count");
+pointCount=0;
+
+
 
 //creating Question elements
 var questions=document.createElement("ul");
@@ -142,32 +151,75 @@ q5.appendChild(q5d);
 //event for all buttons clicked
 var bns = $("button");
 bns.on("click", function() {
-    if (count<5){
+    if (clickCount<5){
     nextChild();
 }else{
+    //hide quetions
     questions.style.display="none";
     var final=document.createElement("div");
+
+    //display final screen
        final.textContent="Game Over";
        document.body.appendChild(final);
+    
+    //final score
+    var finalScore=document.createElement("p");
+        finalScore.textContent=pointCount+1;
+       final.appendChild(finalScore);
+
+    //create and append intitials input
+    var input=document.createElement("input");
+    input.setAttribute("type","text");
+    final.appendChild(input);
+
+    //create keydown for initials input
+    input.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+        var initials = input.value;
+         // create scoreEntry
+    var scoreEntry = initials + " " + finalScore.textContent;
+    console.log(scoreEntry);
+        }
+
+    });
+    
+
+    //localStorage.setItem("click-count", 0);
+//var clickCount = localStorage.getItem("click-count");
+    
 }
 });
 
 
-
-
    //function nextChild
    function nextChild(){ 
-    count++;
+    clickCount++;
     //show next question
-    var currentQuestion=questions.children[count];
+    var currentQuestion=questions.children[clickCount];
     currentQuestion.style.display="block";
     //hide previous question
-    var PrevQ=questions.children[(count-1)];
+    var PrevQ=questions.children[(clickCount-1)];
     PrevQ.style.display="none";
    
-   
    };
-   
+
+//Setting Correct Class
+q1a.setAttribute("class","correct");
+q2b.setAttribute("class","correct");
+q3c.setAttribute("class","correct");
+q4d.setAttribute("class","correct");
+q5a.setAttribute("class","correct");
+
+//On Click Correct pointCount++
+$(".correct").on("click", function (){
+pointCount++;
+alert("Correct!");
+})
+
+
+
+
+
 
 
 
