@@ -219,6 +219,67 @@ alert("Correct!");
 
 
 
+//time
+
+
+//from 1st attempt
+/*var time=60;
+
+
+startQuiz.addEventListener("click", function () {
+    setTime(); 
+  startQuiz.textContent = time;
+  localStorage.setItem("count", time);
+  //q1.style.display="block";
+  //startButton.style.display="none";
+});
+
+
+
+function setTime() {
+    var timerInterval = setInterval(function() {
+      secondsLeft--;
+      time.textContent = secondsLeft;
+  
+      if(secondsLeft === 0) {
+        clearInterval(timerInterval);  
+      }
+  
+    }, 1000);
+};
+*/
+
+//time attempt 2
+/*time=60;
+
+startQuiz.addEventListener("click", function(){
+var timeDisplay=document.createElement("div");
+document.body.appendChild(timeDisplay);
+timeDisplay.textContent=time;
+time--;
+
+})
+*/
+
+//time attempt 3
+var timeDisplay = document.createElement("div");
+document.body.appendChild(timeDisplay);
+
+var secondsLeft = 60;
+
+startQuiz.addEventListener("click", function setTime() {
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeDisplay.textContent = secondsLeft;
+
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      sendMessage();
+    }
+
+  }, 1000);
+})
+
 
 
 
