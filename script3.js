@@ -18,10 +18,10 @@ document.body.appendChild(questions);
 
 //Appending questions
 questions.appendChild(q1);
-questions.appendChild(q2);
-questions.appendChild(q3);
-questions.appendChild(q4);
-questions.appendChild(q5);
+//questions.appendChild(q2);
+//questions.appendChild(q3);
+//questions.appendChild(q4);
+//questions.appendChild(q5);
 
 //create button
 var q1a1=document.createElement("BUTTON");
@@ -35,13 +35,16 @@ q1.appendChild(q1a1);
 //event for all buttons clicked
 var bns = $("button");
 bns.on("click", function() {
-    alert("you clicked");
+    nextChild();
 });
 
-//btn.addEventListener("click",function(){
-    //for (i=0;i<1; i++)
-//console.log(questions.children[i++].textContent);
-//})
+
+//function nextChild return attempt
+function nextChild(){ 
+  for (i=0;i<1; i++)
+   $(document.body).append(questions.children[i++].textContent);
+   };
+
 
 
 
