@@ -142,14 +142,21 @@ q5.appendChild(q5d);
 //event for all buttons clicked
 var bns = $("button");
 bns.on("click", function() {
+    if (count<5){
     nextChild();
+}else{
+    questions.style.display="none";
+    var final=document.createElement("div");
+       final.textContent="Game Over";
+       document.body.appendChild(final);
+}
 });
 
 
 
 
    //function nextChild
-   function nextChild(){   
+   function nextChild(){ 
     count++;
     //show next question
     var currentQuestion=questions.children[count];
@@ -157,8 +164,11 @@ bns.on("click", function() {
     //hide previous question
     var PrevQ=questions.children[(count-1)];
     PrevQ.style.display="none";
-  
+   
+   
    };
+   
+
 
 
 
