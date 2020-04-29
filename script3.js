@@ -1,7 +1,6 @@
 //count variable
 var count = localStorage.getItem("count");
 
-
 //creating Question elements
 var questions=document.createElement("ul");
 var q0=document.createElement("li");
@@ -37,19 +36,108 @@ questions.appendChild(q3);
 questions.appendChild(q4);
 questions.appendChild(q5);
 
-//create button
+//create and append start button
 var startQuiz=document.createElement("BUTTON");
-var q1a=document.createElement("BUTTON");
-var q1
-
-//create button text
 startQuiz.textContent="Start Quiz";
-q1a.textContent="Answer One";
-
-
-//append button
 q0.appendChild(startQuiz);
+
+
+//create Question 1 answers
+var q1a=document.createElement("BUTTON");
+var q1b=document.createElement("BUTTON");
+var q1c=document.createElement("BUTTON");
+var q1d=document.createElement("BUTTON");
+
+//create Question 1 answer text
+q1a.textContent="A. Option 1";
+q1b.textContent="B. Option 2";
+q1c.textContent="C. Option 3";
+q1d.textContent="D. Option 4";
+
+
+//append Question 1 answers
 q1.appendChild(q1a);
+q1.appendChild(q1b);
+q1.appendChild(q1c);
+q1.appendChild(q1d);
+
+//create Question 2 answers
+var q2a=document.createElement("BUTTON");
+var q2b=document.createElement("BUTTON");
+var q2c=document.createElement("BUTTON");
+var q2d=document.createElement("BUTTON");
+
+//create Question 2 answer text
+q2a.textContent="A. Option 1";
+q2b.textContent="B. Option 2";
+q2c.textContent="C. Option 3";
+q2d.textContent="D. Option 4";
+
+
+//append Question 2 answers
+q2.appendChild(q2a);
+q2.appendChild(q2b);
+q2.appendChild(q2c);
+q2.appendChild(q2d);
+
+
+//create Question 3 answers
+var q3a=document.createElement("BUTTON");
+var q3b=document.createElement("BUTTON");
+var q3c=document.createElement("BUTTON");
+var q3d=document.createElement("BUTTON");
+
+//create Question 3 answer text
+q3a.textContent="A. Option 1";
+q3b.textContent="B. Option 2";
+q3c.textContent="C. Option 3";
+q3d.textContent="D. Option 4";
+
+
+//append Question 3 answers
+q3.appendChild(q3a);
+q3.appendChild(q3b);
+q3.appendChild(q3c);
+q3.appendChild(q3d);
+
+//create Question 4 answers
+var q4a=document.createElement("BUTTON");
+var q4b=document.createElement("BUTTON");
+var q4c=document.createElement("BUTTON");
+var q4d=document.createElement("BUTTON");
+
+//create Question 4 answer text
+q4a.textContent="A. Option 1";
+q4b.textContent="B. Option 2";
+q4c.textContent="C. Option 3";
+q4d.textContent="D. Option 4";
+
+
+//append Question 4 answers
+q4.appendChild(q4a);
+q4.appendChild(q4b);
+q4.appendChild(q4c);
+q4.appendChild(q4d);
+
+//create Question 5 answers
+var q5a=document.createElement("BUTTON");
+var q5b=document.createElement("BUTTON");
+var q5c=document.createElement("BUTTON");
+var q5d=document.createElement("BUTTON");
+
+//create Question 5 answer text
+q5a.textContent="A. Option 1";
+q5b.textContent="B. Option 2";
+q5c.textContent="C. Option 3";
+q5d.textContent="D. Option 4";
+
+
+//append Question 3 answers
+q5.appendChild(q5a);
+q5.appendChild(q5b);
+q5.appendChild(q5c);
+q5.appendChild(q5d);
+
 
 //event for all buttons clicked
 var bns = $("button");
@@ -60,7 +148,7 @@ bns.on("click", function() {
 
 
 
-   //function nextChild attempt 2
+   //function nextChild
    function nextChild(){   
     count++;
     //show next question
