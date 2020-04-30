@@ -17,22 +17,22 @@ var q2=document.createElement("li");
 var q3=document.createElement("li");
 var q4=document.createElement("li");
 var q5=document.createElement("li");
-questions.setAttribute("style", "margin:auto; width:50%; text-align:center; page-break-after: always;");
+questions.setAttribute("style", "text-decoration:underline; font-size: 20px; margin:100px; width:50%; text-align:center; page-break-before:always: page-break-after:always; list-style-type:none");
 
 //make Questions invisible
-q1.style.display="none";
-q2.style.display="none";
+q1.setAttribute("style", "display:none; position:fixed; left:100px; padding:100px; font-size:30px; width:50%; text-align:center; page-break-before:always; page-break-after:always;");
+q2.setAttribute("style", "display:none;  padding:100px; width:50%; text-align:center; page-break-before:always; page-break-after:always;");
 q3.style.display="none";
 q4.style.display="none";
 q5.style.display="none";
-q1.setAttribute("style", "display:none; margin:auto; width:50%; text-align:center; page-break-brefore:before; page-break-after:always; padding:10px");
+
 
 //Creating text content for questions
-q1.textContent="Who?";
-q2.textContent="What?";
-q3.textContent="Where?";
-q4.textContent="When?";
-q5.textContent="Why?";
+q1.textContent="What does NaN mean?";
+q2.textContent="Which is not a JavaScript data type?";
+q3.textContent="What keyword refers to the object from which it was called?";
+q4.textContent="Which operator signifies equality in type and value?";
+q5.textContent="Which is not a looping structure in JavaScript?";
 
 //Appending questions element
 document.body.appendChild(questions);
@@ -49,7 +49,8 @@ questions.appendChild(q5);
 
 //create and append start button
 var startQuiz=document.createElement("BUTTON");
-startQuiz.textContent="Start Quiz";
+startQuiz.textContent="Start JavaScript Quiz!";
+startQuiz.setAttribute("style","background-color:pink; margin:100px 350px; padding:50px; width:50%; font-size: 22px; text-align:center; page-break-before:always; page-break-after:always;");
 q0.appendChild(startQuiz);
 
 
@@ -58,13 +59,17 @@ var q1a=document.createElement("BUTTON");
 var q1b=document.createElement("BUTTON");
 var q1c=document.createElement("BUTTON");
 var q1d=document.createElement("BUTTON");
+q1a.setAttribute("style","background-color:pink; margin:10px 275px; padding:10px; width:50%; text-align:center; page-break-before:always; page-break-after:always;");
+q1b.setAttribute("style","background-color:pink; margin:10px 275px; padding:10px; width:50%; text-align:center; page-break-before:always; page-break-after:always;");
+q1c.setAttribute("style","background-color:pink; margin:10px 275px; padding:10px; width:50%; text-align:center; page-break-before:always; page-break-after:always;");
+q1d.setAttribute("style","background-color:pink; margin:10px 275px; padding:10px; width:50%; text-align:center; page-break-before:always; page-break-after:always;");
 
 
 //create Question 1 answer text
-q1a.textContent="A. Option 1";
-q1b.textContent="B. Option 2";
-q1c.textContent="C. Option 3";
-q1d.textContent="D. Option 4";
+q1a.textContent="A. Not a Number";
+q1b.textContent="B. Not a Node";
+q1c.textContent="C. No Appending Needed";
+q1d.textContent="D. Node and Number";
 
 
 //append Question 1 answers
@@ -80,10 +85,10 @@ var q2c=document.createElement("BUTTON");
 var q2d=document.createElement("BUTTON");
 
 //create Question 2 answer text
-q2a.textContent="A. Option 1";
-q2b.textContent="B. Option 2";
-q2c.textContent="C. Option 3";
-q2d.textContent="D. Option 4";
+q2a.textContent="A. Boolean";
+q2b.textContent="B. Document";
+q2c.textContent="C. Object";
+q2d.textContent="D. String";
 
 
 //append Question 2 answers
@@ -100,10 +105,10 @@ var q3c=document.createElement("BUTTON");
 var q3d=document.createElement("BUTTON");
 
 //create Question 3 answer text
-q3a.textContent="A. Option 1";
-q3b.textContent="B. Option 2";
-q3c.textContent="C. Option 3";
-q3d.textContent="D. Option 4";
+q3a.textContent="A. that";
+q3b.textContent="B. here";
+q3c.textContent="C. this";
+q3d.textContent="D. it";
 
 
 //append Question 3 answers
@@ -119,10 +124,10 @@ var q4c=document.createElement("BUTTON");
 var q4d=document.createElement("BUTTON");
 
 //create Question 4 answer text
-q4a.textContent="A. Option 1";
-q4b.textContent="B. Option 2";
-q4c.textContent="C. Option 3";
-q4d.textContent="D. Option 4";
+q4a.textContent="A. =";
+q4b.textContent="B. ==";
+q4c.textContent="C. !==";
+q4d.textContent="D. ===";
 
 
 //append Question 4 answers
@@ -138,10 +143,10 @@ var q5c=document.createElement("BUTTON");
 var q5d=document.createElement("BUTTON");
 
 //create Question 5 answer text
-q5a.textContent="A. Option 1";
-q5b.textContent="B. Option 2";
-q5c.textContent="C. Option 3";
-q5d.textContent="D. Option 4";
+q5a.textContent="A. Loop";
+q5b.textContent="B. While";
+q5c.textContent="C. For";
+q5d.textContent="D. do-while";
 
 
 //append Question 3 answers
@@ -235,13 +240,14 @@ function finalPage(){
     var final=document.createElement("div");
 
     //display final screen
-       final.textContent="Game Over";
+       final.textContent="Game Over! Type initials and click [ENTER] or [RETURN]";
        document.body.appendChild(final);
     
 
     //create and append intitials input
     var input=document.createElement("input");
     input.setAttribute("type","text");
+    input.setAttribute("label","")
     final.appendChild(input);
 
  
@@ -252,11 +258,12 @@ function finalPage(){
             var initials = input.value;
             input.style.display="none";
             timeDisplay.style.display="none";
+            final.textContent=""
 
             // create scoreEntry
             var scoreEntry = initials + " " + secondsLeft;
         
-            //Highscore submission and rertieval
+            //Highscore submission
             localStorage.setItem("Stored Scores", JSON.stringify(scoreEntry));
             var showedScores=document.createElement("div");
             showedScores.textContent=JSON.parse(localStorage.getItem("Stored Scores"));
@@ -271,7 +278,7 @@ function finalPage(){
             });
             
             //stored Scores
-            showedScores.textContent=JSON.parse(localStorage.getItem("Stored Scores"));
+            showedScores.textContent="Scoreboard: " + JSON.parse(localStorage.getItem("Stored Scores"));
             var clearButton=document.createElement("BUTTON");
             clearButton.textContent="Clear Score";
             final.appendChild(clearButton);
@@ -279,6 +286,7 @@ function finalPage(){
                 localStorage.removeItem("Stored Scores");
                 showedScores.style.display="none";
                 clearButton.style.display="none";
+                
             });
         }
     });
