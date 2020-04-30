@@ -8,6 +8,11 @@ clickCount=0;
 //var pointCount = localStorage.getItem("point-count");
 pointCount=0;
 
+//global time
+var timeDisplay = document.createElement("div");
+document.body.appendChild(timeDisplay);
+var secondsLeft=60;
+
 
 
 //creating Question elements
@@ -178,68 +183,41 @@ q3c.setAttribute("class","correct");
 q4d.setAttribute("class","correct");
 q5a.setAttribute("class","correct");
 
-//On Click Correct pointCount++
-$(".correct").on("click", function (){
-pointCount++;
-alert("Correct!");
-})
+//Setting Incorrect Class
+q1b.setAttribute("class","incorrect");
+q1c.setAttribute("class","incorrect");
+q1d.setAttribute("class","incorrect");
+q2a.setAttribute("class","incorrect");
+q2c.setAttribute("class","incorrect");
+q2d.setAttribute("class","incorrect");
+q3a.setAttribute("class","incorrect");
+q3b.setAttribute("class","incorrect");
+q3d.setAttribute("class","incorrect");
+q4a.setAttribute("class","incorrect");
+q4b.setAttribute("class","incorrect");
+q4c.setAttribute("class","incorrect");
+q5b.setAttribute("class","incorrect");
+q5c.setAttribute("class","incorrect");
+q5d.setAttribute("class","incorrect");
 
 
 
-
-//time
-
-
-//from 1st attempt
-/*var time=60;
-
-
-startQuiz.addEventListener("click", function () {
-    setTime(); 
-  startQuiz.textContent = time;
-  localStorage.setItem("count", time);
-  //q1.style.display="block";
-  //startButton.style.display="none";
+//On Click Incorrect
+$(".incorrect").on("click", function(){   
+    alert("incorrect")  
+    secondsLeft-=10;
+    console.log(secondsLeft);
+    
 });
 
 
 
-function setTime() {
-    var timerInterval = setInterval(function() {
-      secondsLeft--;
-      time.textContent = secondsLeft;
-  
-      if(secondsLeft === 0) {
-        clearInterval(timerInterval);  
-      }
-  
-    }, 1000);
-};
-*/
 
-//time attempt 2
-/*time=60;
-
-startQuiz.addEventListener("click", function(){
-var timeDisplay=document.createElement("div");
-document.body.appendChild(timeDisplay);
-timeDisplay.textContent=time;
-time--;
-
-})
-*/
-
-//time attempt 3
-var timeDisplay = document.createElement("div");
-document.body.appendChild(timeDisplay);
-
-var secondsLeft = 10;
-
+//start time
 startQuiz.addEventListener("click", function setTime() {
   var timerInterval = setInterval(function() {
-    secondsLeft--;
+   secondsLeft--;
     timeDisplay.textContent = secondsLeft;
-
     if((secondsLeft === 0) || (clickCount===5)) {
         clearInterval(timerInterval);
         finalPage();
@@ -284,12 +262,4 @@ function finalPage(){
 
   });
 }
-
-
-
-
-
-
-
-
 
