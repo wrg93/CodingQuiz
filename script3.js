@@ -1,8 +1,11 @@
+
+
 //click count set
 clickCount=0;
 
 //global time
 var timeDisplay = document.createElement("div");
+timeDisplay.setAttribute("style", "margin:auto; width:50%; text-align:right; page-break-after: always;");
 document.body.appendChild(timeDisplay);
 var secondsLeft=60;
 
@@ -14,6 +17,7 @@ var q2=document.createElement("li");
 var q3=document.createElement("li");
 var q4=document.createElement("li");
 var q5=document.createElement("li");
+questions.setAttribute("style", "margin:auto; width:50%; text-align:center; page-break-after: always;");
 
 //make Questions invisible
 q1.style.display="none";
@@ -21,6 +25,7 @@ q2.style.display="none";
 q3.style.display="none";
 q4.style.display="none";
 q5.style.display="none";
+q1.setAttribute("style", "display:none; margin:auto; width:50%; text-align:center; page-break-brefore:before; page-break-after:always; padding:10px");
 
 //Creating text content for questions
 q1.textContent="Who?";
@@ -31,6 +36,7 @@ q5.textContent="Why?";
 
 //Appending questions element
 document.body.appendChild(questions);
+questions.style.pageBreakAfter="always";
 
 
 //Appending questions
@@ -52,6 +58,7 @@ var q1a=document.createElement("BUTTON");
 var q1b=document.createElement("BUTTON");
 var q1c=document.createElement("BUTTON");
 var q1d=document.createElement("BUTTON");
+
 
 //create Question 1 answer text
 q1a.textContent="A. Option 1";
@@ -276,5 +283,6 @@ function finalPage(){
         }
     });
 }
+
 
 
