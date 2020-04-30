@@ -156,9 +156,11 @@ q5.appendChild(q5d);
 //event for all buttons clicked
 var bns = $("button");
 bns.on("click", function() {
-    if (clickCount<5){
+    clickCount++;
+    console.log(clickCount);
+    if (clickCount<6){
     nextChild();
-}
+    }
 
 
 });
@@ -166,7 +168,7 @@ bns.on("click", function() {
 
    //function nextChild
    function nextChild(){ 
-    clickCount++;
+    
     //show next question
     var currentQuestion=questions.children[clickCount];
     currentQuestion.style.display="block";
@@ -200,13 +202,16 @@ q5b.setAttribute("class","incorrect");
 q5c.setAttribute("class","incorrect");
 q5d.setAttribute("class","incorrect");
 
-
+//On Click Correct
+$(".correct").on("click", function(){   
+    alert("Correct!")   
+});
 
 //On Click Incorrect
 $(".incorrect").on("click", function(){   
     alert("incorrect")  
     secondsLeft-=10;
-    console.log(secondsLeft);
+    //console.log(secondsLeft);
     
 });
 
@@ -218,7 +223,7 @@ startQuiz.addEventListener("click", function setTime() {
   var timerInterval = setInterval(function() {
    secondsLeft--;
     timeDisplay.textContent = secondsLeft;
-    if((secondsLeft === 0) || (clickCount===5)) {
+    if((secondsLeft === 0) || (clickCount===(6))) {
         clearInterval(timerInterval);
         finalPage();
         
@@ -241,10 +246,6 @@ function finalPage(){
        final.textContent="Game Over";
        document.body.appendChild(final);
     
-    //final score
-    var finalScore=document.createElement("p");
-        finalScore.textContent=pointCount+1;
-       final.appendChild(finalScore);
 
     //create and append intitials input
     var input=document.createElement("input");
@@ -255,11 +256,19 @@ function finalPage(){
     input.addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
         var initials = input.value;
-         // create scoreEntry
-    var scoreEntry = initials + " " + finalScore.textContent;
-    console.log(scoreEntry);
-        }
 
+         // create scoreEntry
+    var scoreEntry = initials + " " + secondsLeft;
+    
+    //Highscore submission and rertieval
+    localStorage.setItem("Stored Scores", JSON.stringify(scoreEntry));
+    var showedScores=document.createElement("div");
+    showedScores.textContent=JSON.parse(localStorage.getItem("Stored Scores"));
+    final.appendChild(showedScores);
+    
+    
+
+        }
   });
 }
 
