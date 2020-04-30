@@ -1,19 +1,10 @@
-//click count variable
-//localStorage.setItem("click-count", 0);
-//var clickCount = localStorage.getItem("click-count");
+//click count set
 clickCount=0;
-
-//point count variable
-//localStorage.setItem("point-count", 0);
-//var pointCount = localStorage.getItem("point-count");
-pointCount=0;
 
 //global time
 var timeDisplay = document.createElement("div");
 document.body.appendChild(timeDisplay);
 var secondsLeft=60;
-
-
 
 //creating Question elements
 var questions=document.createElement("ul");
@@ -161,8 +152,6 @@ bns.on("click", function() {
     if (clickCount<6){
     nextChild();
     }
-
-
 });
 
 
@@ -215,9 +204,6 @@ $(".incorrect").on("click", function(){
     
 });
 
-
-
-
 //start time
 startQuiz.addEventListener("click", function setTime() {
   var timerInterval = setInterval(function() {
@@ -234,10 +220,9 @@ startQuiz.addEventListener("click", function setTime() {
 })
 
 
-
-
-
+//final page
 function finalPage(){
+
     //hide quetions
     questions.style.display="none";
     var final=document.createElement("div");
@@ -252,23 +237,44 @@ function finalPage(){
     input.setAttribute("type","text");
     final.appendChild(input);
 
+ 
+
     //create keydown for initials input
     input.addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-        var initials = input.value;
+            if (e.key === 'Enter') {
+            var initials = input.value;
+            input.style.display="none";
+            timeDisplay.style.display="none";
 
-         // create scoreEntry
-    var scoreEntry = initials + " " + secondsLeft;
-    
-    //Highscore submission and rertieval
-    localStorage.setItem("Stored Scores", JSON.stringify(scoreEntry));
-    var showedScores=document.createElement("div");
-    showedScores.textContent=JSON.parse(localStorage.getItem("Stored Scores"));
-    final.appendChild(showedScores);
-    
-    
-
+            // create scoreEntry
+            var scoreEntry = initials + " " + secondsLeft;
+        
+            //Highscore submission and rertieval
+            localStorage.setItem("Stored Scores", JSON.stringify(scoreEntry));
+            var showedScores=document.createElement("div");
+            showedScores.textContent=JSON.parse(localStorage.getItem("Stored Scores"));
+            final.appendChild(showedScores);
+            
+            //goback button
+            var goBackButton=document.createElement("BUTTON");
+            goBackButton.textContent="Try It Again!"
+            final.appendChild(goBackButton);
+            goBackButton.addEventListener("click", function(){
+            window.location.href="index2.html"
+            });
+            
+            //stored Scores
+            showedScores.textContent=JSON.parse(localStorage.getItem("Stored Scores"));
+            var clearButton=document.createElement("BUTTON");
+            clearButton.textContent="Clear Score";
+            final.appendChild(clearButton);
+            clearButton.addEventListener("click",function(){
+                localStorage.removeItem("Stored Scores");
+                showedScores.style.display="none";
+                clearButton.style.display="none";
+            });
         }
-  });
+    });
 }
+
 
